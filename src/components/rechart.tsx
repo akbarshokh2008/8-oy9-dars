@@ -31,7 +31,6 @@ const Recharts: React.FC = () => {
     value: apiData.lineChart.data[index],
   }));
 
-//   const semichartData = apiData.semicharts;
 
   return (
     <div style={{ padding: "20px" }} className="w-[600px]">

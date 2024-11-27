@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import Chart from "./components/chart";
 import Recharts from "./components/rechart";
+import RadarChart from "./components/radar";
 import Tepalik from "./img/tepalik.png";
+import QrKod from "./img/qrKod.png";
 import Miyya from "./img/miyya.svg";
+import Norma from "./img/norma.png";
+import CircularCharts from "./components/doiraChart";
 type userType = {
   firstName: string;
   lastName: string;
@@ -74,6 +78,7 @@ function App() {
                     <p>Индекс: </p>
                     <p className="font-bold">{user.index}</p>
                   </div>
+                  <img src={Norma} alt="" />
                 </div>
               </div>
               <div className="flex gap-3 flex-col">
@@ -96,21 +101,165 @@ function App() {
           <h2 className="font-bold text-4xl w-[300px]">Билим тести</h2>
           <span className="h-1 bg-gray-300 w-full"></span>
         </div>
-        <div className="">
+        <div className="flex items-center">
           <Chart />
-        </div>
-        <div className="flex justify-center gap-10">
-          <Recharts />
-          <div>
-            <div className="text flex gap-2">
-              <img src={Miyya} alt="" />
-              <p>
-                <span className="font-bold">90 фоиз</span> иштирокчидан <br />{" "}
-                яхширок натижа
-              </p>
+          <div className="flex justify-center gap-10">
+            <div>
+              <Recharts />
+              <div className="flex flex-col">
+                <p className="text-center text-2xl font-medium text-blue-700">78%</p>
+                <div className="flex items-center gap-4 w-[490px]">
+                  <p className="text-right text-xl font-medium mt-1">78%</p>
+                  <div className="w-full bg-gray-200 rounded-full h-12">
+                    <div className="bg-[#138e05] h-12 rounded-full w-[78%]">
+                      <p className="text-white text-3xl text-center pt-1 font-bold">
+                        Умумий натижа
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <img src={Tepalik} alt="" />
+            <div>
+              <div className="text flex gap-2">
+                <img src={Miyya} alt="" />
+                <p>
+                  <span className="font-bold">90 фоиз</span> иштирокчидан <br />{" "}
+                  яхширок натижа
+                </p>
+              </div>
+              <img src={Tepalik} alt="" />
+            </div>
           </div>
+        </div>
+      </div>
+      <div className="container mx-auto">
+        <div className="bilim flex items-center mt-[100px]">
+          <span className="block w-[14px] h-[45px] bg-blue-800 mr-3"></span>
+          <h2 className="font-bold text-4xl w-[900px]">
+            Шахсий ва касбий хусусиятлар
+          </h2>
+          <span className="h-1 bg-gray-300 w-full"></span>
+        </div>
+        <div className="flex justify-between">
+          <div className="1-qism flex flex-col gap-5 mt-10">
+            <div className="1-chart flex flex-col">
+              <p className="text-xl">Максадга интилувчанлик</p>
+              <div className="flex items-center gap-4 w-[490px]">
+                <div className="w-full bg-gray-200 rounded-full h-4">
+                  <div className="bg-blue-600 h-4 rounded-full w-[90%]"></div>
+                </div>
+                <p className="text-right text-xl font-medium mt-1">90%</p>
+              </div>
+            </div>
+            <div className="2-chart flex flex-col">
+              <p className="text-xl">Эмоционал интеллект</p>
+              <div className="flex items-center gap-4 w-[490px]">
+                <div className="w-full bg-gray-200 rounded-full h-4">
+                  <div className="bg-blue-600 h-4 rounded-full w-[95%]"></div>
+                </div>
+                <p className="text-right text-xl font-medium mt-1">95%</p>
+              </div>
+            </div>
+            <div className="3-chart flex flex-col">
+              <p className="text-xl">Креативлик</p>
+              <div className="flex items-center gap-4 w-[490px]">
+                <div className="w-full bg-gray-200 rounded-full h-4">
+                  <div className="bg-blue-600 h-4 rounded-full w-[75%]"></div>
+                </div>
+                <p className="text-right text-xl font-medium mt-1">75%</p>
+              </div>
+            </div>
+            <div className="4-chart flex flex-col">
+              <p className="text-xl">Ходимларга йуналганлик</p>
+              <div className="flex items-center gap-4 w-[490px]">
+                <div className="w-full bg-gray-200 rounded-full h-4">
+                  <div className="bg-blue-600 h-4 rounded-full w-[86%]"></div>
+                </div>
+                <p className="text-right text-xl font-medium mt-1">86%</p>
+              </div>
+            </div>
+          </div>
+          <div className="2-qism ">
+            <RadarChart />
+          </div>
+          <div className="3-qism flex flex-col gap-5 mt-10">
+            <div className="1-chart flex flex-col">
+              <p className="text-xl">Топширикларга йуналганлик</p>
+              <div className="flex items-center gap-4 w-[490px]">
+                <div className="w-full bg-gray-200 rounded-full h-4">
+                  <div className="bg-blue-600 h-4 rounded-full w-[95%]"></div>
+                </div>
+                <p className="text-right text-xl font-medium mt-1">95%</p>
+              </div>
+            </div>
+            <div className="2-chart flex flex-col">
+              <p className="text-xl">Фаол ижтимоий муносабатлар</p>
+              <div className="flex items-center gap-4 w-[490px]">
+                <div className="w-full bg-gray-200 rounded-full h-4">
+                  <div className="bg-blue-600 h-4 rounded-full w-[75%]"></div>
+                </div>
+                <p className="text-right text-xl font-medium mt-1">75%</p>
+              </div>
+            </div>
+            <div className="3-chart flex flex-col">
+              <p className="text-xl">Уз устида ишлаш</p>
+              <div className="flex items-center gap-4 w-[490px]">
+                <div className="w-full bg-gray-200 rounded-full h-4">
+                  <div className="bg-blue-600 h-4 rounded-full w-[86%]"></div>
+                </div>
+                <p className="text-right text-xl font-medium mt-1">86%</p>
+              </div>
+            </div>
+            <div className="4-chart flex flex-col">
+              <p className="text-xl">Муаммоли вазиятга йуналганлик</p>
+              <div className="flex items-center gap-4 w-[490px]">
+                <div className="w-full bg-gray-200 rounded-full h-4">
+                  <div className="bg-blue-600 h-4 rounded-full w-[86%]"></div>
+                </div>
+                <p className="text-right text-xl font-medium mt-1">86%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="psixalogiya flex items-center mt-[100px]">
+          <span className="block w-[14px] h-[45px] bg-blue-800 mr-3"></span>
+          <h2 className="font-bold text-4xl w-[700px]">
+            Психологик диагностика{" "}
+          </h2>
+          <span className="h-1 bg-gray-300 w-full"></span>
+        </div>
+        <div className="text flex justify-between mt-5">
+          <p className="max-w-[640px] text-xl leading-7">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s,when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries,{" "}
+          </p>
+          <p className="max-w-[640px] text-xl leading-7">
+            a type specimen book. It has survived not only five centuries, but
+            also the leap into electronic typesetting, remaining essentially
+            unchanged. It was popularised in the 1960s with the release of
+          </p>
+        </div>
+        <div className="charts flex items-center mt-[100px]">
+          <span className="block w-[14px] h-[45px] bg-blue-800 mr-3"></span>
+          <h2 className="font-bold text-4xl w-[1300px]">
+            Компетенцияларнинг намоён булиши{" "}
+          </h2>
+          <span className="h-1 bg-gray-300 w-full"></span>
+        </div>
+        <div className="strategiya flex justify-around items-center">
+          <div className="w-[1000px]">
+            <CircularCharts />
+          </div>
+          <div>
+            <img src={QrKod} alt="" />
+          </div>
+        </div>
+        <div className="muallif">
+          <p className="text-xl text-center mt-24">Argos.uz 2024</p>
         </div>
       </div>
     </div>

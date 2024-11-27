@@ -42,24 +42,24 @@ const Chart = () => {
           formatter({ value }) {
             return `${value.toFixed(0)}%`;
           },
-          fontSize: 60
+          fontSize: 50
         },
         secondaryLabel: {
           text: chart.label,
-        fontSize: 10
+        fontSize: 5
         },
         
       };
 
       return (
         <div key={index} className="chart-container">
-          <AgGauge options={options as any} className="w-[400px]"/>
+          <AgGauge options={options as any} className="w-[250px]"/>
         </div>
       );
     });
   };
 
-  return <div className="flex flex-wrap gap-10 justify-center">{renderCharts()}</div>;
+  return <div className="grid grid-cols-3 gap-10 w-[750px]">{renderCharts()}</div>;
 };
 
 export default Chart;
