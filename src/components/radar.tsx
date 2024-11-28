@@ -1,69 +1,96 @@
-import React, { useEffect, useRef } from 'react';
-import {
-  Chart,
-  RadarController,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import React from 'react';
+import ReactApexChart from 'react-apexcharts';
 
-Chart.register(
-  RadarController,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Title,
-  Tooltip,
-  Legend
-);
+interface ApexChartState {
+  series: Array<{
+    name: string;
+    data: number[];
+  }>;
+  options: ApexCharts.ApexOptions;
+}
 
-const RadarChart: React.FC = () => {
-  const chartRef = useRef<HTMLCanvasElement>(null);
+class ApexChart extends React.Component<{}, ApexChartState> {
+  constructor(props: {}) {
+    super(props);
 
-  useEffect(() => {
-    if (chartRef.current) {
-      const ctx = chartRef.current.getContext('2d');
-      if (ctx) {
-        new Chart(ctx, {
+    this.state = {
+      series: [
+        {
+          name: 'Skills',
+          data: [80, 90, 70, 85, 60],
+        },
+      ],
+      options: {
+        chart: {
+          height: 350,
           type: 'radar',
-          data: {
-            labels: ['Photoshop', 'Illustrator', 'XD', 'Indesign', 'Premiere'],
-            datasets: [
-              
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              r: {
-                angleLines: { display: true },
-                suggestedMin: 0,
-                suggestedMax: 100,
-                ticks: {
-                  stepSize: 20,
-                  callback: (value) => `${value}%`,
-                },
+        },
+        dataLabels: {
+          enabled: true,
+        },
+        plotOptions: {
+          radar: {
+            size: 140,
+            polygons: {
+              strokeColors: '#e9e9e9',
+              fill: {
+                colors: ['#f8f8f8', '#fff'],
               },
             },
           },
-        });
-      }
-    }
-  }, []);
+        },
+        title: {
+          text: 'Besh burchakli Radar Chart',
+        },
+        colors: ['#fff'],
+        markers: {
+          size: 4,
+          colors: ['#fff'],
+          strokeWidth: 2,
+        },
+        tooltip: {
+          y: {
+            formatter: function (val: number) {
+              return `${val} points`; 
+            },
+          },
+        },
+        xaxis: {
+          categories: [
+            'Photoshop',
+            'Illustrator',
+            'XD',
+            'InDesign',
+            'Premiere',
+            'Premiere',
+          ], 
+        },
+        yaxis: {
+          labels: {
+            formatter: function (val: number) {
+              return val.toString();
+            },
+          },
+        },
+      },
+    };
+  }
 
-  return (
-    <div>
-      <div className="flex h-[400px]">
-        <canvas ref={chartRef}></canvas>
+  render() {
+    return (
+      <div>
+        <div id="chart">
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="radar"
+            height={350}
+          />
+        </div>
+        <div id="html-dist"></div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default RadarChart;
+export default ApexChart;

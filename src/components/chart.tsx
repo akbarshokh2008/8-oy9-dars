@@ -52,14 +52,14 @@ const Chart = () => {
       };
 
       return (
-        <div key={index} className="chart-container">
+        <div key={index} className="chart-container ">
           <AgGauge options={options as any} className="w-[250px]"/>
         </div>
       );
     });
   };
 
-  return <div className="grid grid-cols-3 gap-10 w-[750px]">{renderCharts()}</div>;
+  return <div className="grid grid-cols-3 gap-10 w-[750px] bg-inherit">{renderCharts()}</div>;
 };
 
 export default Chart;

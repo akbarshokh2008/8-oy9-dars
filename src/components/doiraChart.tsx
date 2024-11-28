@@ -53,7 +53,7 @@ const CircularCharts = () => {
         <div key={index} className="flex items-center gap-4 w-[200px]">
           <div className="relative">
             <canvas id={`chart-${index}`} width="100" height="100"></canvas>
-            <div className="absolute inset-0 flex items-center justify-center text-xl font-semibold">
+            <div className="absolute inset-0 flex items-center justify-center text-xl font-semibold dark:text-whit">
               {chart.percentage}%
             </div>
           </div>
